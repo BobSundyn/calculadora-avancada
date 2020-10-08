@@ -67,3 +67,14 @@ body {
     float: right;
     margin-right: 5px;
 }
+
+.tecla:hover {
+    background-color: #656b6b;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.tecla:active{
+    background-color: #20c3e0;
+    transition: 0s;
+}
