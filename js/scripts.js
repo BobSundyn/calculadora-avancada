@@ -22,7 +22,7 @@ function pegarOperador(sinal) {
     play();
 
     //Verifica se o primeiro valor foi informado
-    if (num1 != "") { //SE o num2 for diferente de ""
+    if (num1 != "") { //SE o num1 for diferente de ""
 
         // Se o segundo valor NÃO for informado
         if (num2 == "") {
@@ -31,16 +31,65 @@ function pegarOperador(sinal) {
 
         } else {
             //Faz o cálculo
+            calcular();
         }
     }
 }
+
+
+//Realiza os Cálculos
+function calcular() {
+    //Converter os valores para FLOAT (decimal)
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
+
+    //Guarda o resultado
+    var resultado = "";
+
+    //Verifica o sinal informado
+    if (operador == "+") {
+        resultado = num1 + num2;
+
+    }else if (operador == "-") {
+        resultado = num1 - num2;
+
+    }else if (operador == "*") {
+        resultado = num1 * num2;
+
+    }else if (operador =="/") {
+        resultado = num1 / num2;
+    }
+
+    //Limpa o conteúdo das variáveis e atualiza o display
+       // num1 = ""; //num1 = resultado; PARA O NUM1 CONTINUAR COM O RESULTADO
+       limpar();
+       atualizarDisplay(resultado);
+}
+
+//Tecla igual
+function verificarIgual() {
+    play();
+
+    // Verificar se TODOS os campos foram preenchidos
+    if (num1 != "" && num2 != "" && operador != "") {
+        calcular();
+    }
+}
+
 
 // Atualiza o display
 function atualizarDisplay(valor) {
     document.getElementById('display').innerHTML = valor;
 }
 
-
+// Limpar 
+function limpar() {
+    play();
+    num1 = "";
+    num2 = "";
+    operador = "";
+    atualizarDisplay("0");
+}
 
 
 // reproduz o som da tecla
